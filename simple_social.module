@@ -4,7 +4,7 @@
 
 function simple_social_init()
 {
-drupal_add_js('http://apis.google.com/js/plusone.js');
+drupal_add_js('http://apis.google.com/js/plusone.js','external');
 }
 
 function simple_social_render($nid)
