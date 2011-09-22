@@ -1,0 +1,4 @@
+; $Id: Simple Social
+name = Simple Social
+description = Output social links when called.
+core = 6.x
