@@ -2,6 +2,10 @@
 
 // Lightflows simple social button
 
+function simple_social_init()
+{
+drupal_add_js('http://apis.google.com/js/plusone.js');
+}
 
 function simple_social_render($nid)
 {
