@@ -54,13 +54,14 @@ function simple_social_twitter_button($nid)
 {
 	global $base_url;
 	$node = node_load($nid);
-	$text = 'Check out this super offer from '.$node->title;
+	$text = $node->title;
+	$via = $sitename;
 	$alias = drupal_get_path_alias( 'node/' . $node->nid);
 	$url = $base_url.'/'.$alias;
 
 	$urlEncode = urlencode($url);
 	$output = '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>';
 	$output .= '<div class="tweetbutton">';
-	$output .= '<a href="http://twitter.com/share?url='.$urlEncode.'&amp;counturl='.$urlEncode.'&amp;text='.$text.'&amp;via=lovedressage" class="twitter-share-button">Tweet</a></div>';
+	$output .= '<a href="http://twitter.com/share?url='.$urlEncode.'&amp;counturl='.$urlEncode.'&amp;text='.$text.'&amp;via='.$via.'" class="twitter-share-button">Tweet</a></div>';
 	return $output;
 }
