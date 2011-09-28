@@ -10,7 +10,7 @@ drupal_set_html_head('<script type="text/javascript" src="http://apis.google.com
 function simple_social_render($nid)
 {
 	//$fb = simple_social_facebook_button($nid);
-	$fb = simple_social_facebook_button_new();
+	$fb = simple_social_facebook_button_new($nid);
 	$twitter = simple_social_twitter_button($nid);
 	$gplus = simple_social_gplus();
 	$output;
@@ -36,9 +36,14 @@ function simple_social_facebook_button($nid)
 	return $output;
 }
 
-function simple_social_facebook_button_new()
+function simple_social_facebook_button_new($nid)
 {
-	$output = '<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=136328626451722&amp;xfbml=1"></script><fb:like href="" send="true" width="260" show_faces="true" font="arial"></fb:like>';
+	global $base_url;
+	$node = node_load($nid);
+	$alias = drupal_get_path_alias( 'node/' . $node->nid);
+	$url = $base_url.'/'.$alias;
+	
+	$output = '<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=136328626451722&amp;xfbml=1"></script><fb:like href="" send="false" width="260" show_faces="false" layout="button_count" font="arial"></fb:like>';
 	return $output;
 }
 
